@@ -118,6 +118,5 @@ jobs:
         run: cd MyAssistant && gradle assembleDebug --no-daemon
       - name: Publish APK
         env:
-          GH_TOKEN: ${{ github.token }}
+          GH_TOKEN: ${{ github.token }}GH_REPO: ${{ github.repository }}
         run: gh release create "v${{ github.run_number }}" MyAssistant/app/build/outputs/apk/debug/app-debug.apk --title "My Assistant v${{ github.run_number }}" --notes "Download app-debug.apk"
-        
